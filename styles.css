@@ -1,0 +1,54 @@
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.container.dark-mode {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+
+.container.dark-mode #personList {
+    background-color: #444;
+    border: 1px solid #333;
+}
+
+.container.dark-mode #personList li {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+}
+
+
+.container.dark-mode #personList li:hover {
+    background-color: #555;
+    border: 1px solid #fff;
+}
+/* Estilos para el ul */
+ul.list-group {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+
+ul.list-group li {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; 
+}
+
+
+ul.list-group li img {
+    width: 40px; 
+    height: 40px; 
+    margin-right: 10px; 
+    border-radius: 50%; 
+}
+
+
+ul.list-group li span {
+    flex-grow: 1; 
+}
