@@ -1,7 +1,7 @@
 const personList = document.getElementById("personList");
 const searchInput = document.getElementById("searchInput");
 const modeButton = document.getElementById("modeButton");
-let personsData = []; // Almacenar los datos de las personas
+let personsData = [];
 
 async function fetchPersons () {
     try {
@@ -14,21 +14,21 @@ async function fetchPersons () {
 }
 
 function getRandomAvatarUrl () {
-    // Genera un número aleatorio entre 1 y 10 (o cualquier rango que desees)
-    const randomNum = Math.floor(Math.random() * 10) + 1;
-    // Construye la URL de la imagen con el número aleatorio
+
+    const randomNum = Math.floor(Math.random() * 20) + 1;
+
     return `https://xsgames.co/randomusers/assets/avatars/pixel/${randomNum}.jpg`;
 
 }
 
 function displayPersons (data) {
-    personList.innerHTML = ""; // Limpiar la lista
+    personList.innerHTML = "";
     data.forEach(person => {
         const li = document.createElement("li");
-        const avatar = document.createElement("img"); // Crear elemento de imagen
-        avatar.src = getRandomAvatarUrl(); // Obtener una URL de avatar aleatoria
-        avatar.alt = "Avatar de usuario"; // Texto alternativo para la imagen
-        li.appendChild(avatar); // Agregar la imagen al elemento li
+        const avatar = document.createElement("img");
+        avatar.src = getRandomAvatarUrl();
+        avatar.alt = "Avatar de usuario";
+        li.appendChild(avatar);
         li.innerHTML += `${person.name}, Vive en: ${person.country}, Teléfono: ${person.phone}`;
         personList.appendChild(li);
     });
@@ -36,13 +36,13 @@ function displayPersons (data) {
 
 fetchPersons();
 
-// Función para filtrar las personas según el nombre ingresado
+
 function filterPersonsByName (name) {
     return personsData.filter(person => person.name.toLowerCase().includes(name.toLowerCase()));
 }
 
 searchInput.addEventListener("input", () => {
-    const searchTerm = searchInput.value.trim(); // Obtener el valor del campo de búsqueda
+    const searchTerm = searchInput.value.trim();
     const filteredPersons = filterPersonsByName(searchTerm);
     displayPersons(filteredPersons);
 });
